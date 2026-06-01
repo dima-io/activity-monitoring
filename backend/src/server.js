@@ -8,6 +8,9 @@ dotenv.config();
 const PORT = process.env.PORT || 5050;
 
 async function startServer() {
+  console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
+  console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
+  console.log("TELEGRAM_BOT_TOKEN exists:", !!process.env.TELEGRAM_BOT_TOKEN);
   await connectDB();
 
   startTelegramBot();
