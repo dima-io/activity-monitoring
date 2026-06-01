@@ -2,6 +2,8 @@ import axios from "axios";
 
 const API_URL = process.env.VUE_APP_API_URL;
 
+console.log("API_URL =", API_URL);
+
 export async function addActivity(payload) {
   const response = await axios.post(`${API_URL}/activities`, payload);
   return response.data;
