@@ -11,6 +11,7 @@ app.use(
     origin: [
       "http://localhost:8080",
       "https://activity-monitoring-blond.vercel.app",
+      "https://activity-monitoring-8dadgb82t-dmytro-dk-projects.vercel.app",
     ],
     credentials: true,
   }),
