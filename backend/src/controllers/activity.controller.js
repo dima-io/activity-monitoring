@@ -1,5 +1,4 @@
 import { ObjectId } from "mongodb";
-import { ca } from "vuetify/locale";
 import { db } from "../config/db.js";
 
 export async function addActivity(req, res) {
