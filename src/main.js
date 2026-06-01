@@ -23,6 +23,7 @@ import * as directives from "vuetify/directives";
 
 import { setupPinia } from "./plugins/pinia/index.js";
 import { router } from "./router.js";
+import './registerServiceWorker'
 
 const vuetify = createVuetify({
   components,
