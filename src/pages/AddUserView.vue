@@ -37,12 +37,7 @@
             <v-radio label="User" value="user" class="primary" />
             <v-radio label="Admin" value="admin" class="primary" />
           </v-radio-group>
-          <v-btn
-            type="submit"
-            width="160"
-            height="44"
-            variant="outlined"
-            color="primary"
+          <v-btn type="submit" variant="outlined" color="primary"
             >Додати користувача</v-btn
           >
         </v-form>
