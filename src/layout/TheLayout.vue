@@ -46,16 +46,16 @@
                 :title="route.meta.title"
               />
             </template>
-            <v-list-item
-              v-for="child in route.children"
-              :key="child.path"
-              :prepend-icon="child.meta.icon"
-              :to="`/${route.path}/${child.path}`"
-              :title="child.meta.title"
-              class="pl-3"
-              slim
-            >
-            </v-list-item>
+            <div class="pl-2">
+              <v-list-item
+                v-for="child in route.children"
+                :key="child.path"
+                :prepend-icon="child.meta.icon"
+                :to="`/${route.path}/${child.path}`"
+                :title="child.meta.title"
+                slim
+              ></v-list-item>
+            </div>
           </v-list-group>
         </template>
       </v-list>
@@ -133,3 +133,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+:deep(.v-list-group__items .v-list-item--nav) {
+  padding-left: 0 !important;
+}
+</style>
