@@ -27,7 +27,7 @@ export const useActivityStore = defineStore("activity", {
         this.loading = true;
         this.activities = await fetchActivities(userId);
       } catch (error) {
-        this.error = error.response?.data?.message || "Failed to sget activity";
+        this.error = error.response?.data?.message || "Failed to get activity";
 
         throw error;
       } finally {
@@ -39,5 +39,36 @@ export const useActivityStore = defineStore("activity", {
 
   getters: {
     allActivities: (state) => state.activities,
+    monthlyActivities: (state) => {
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth();
+      const currentYear = currentDate.getFullYear();
+      return state.activities.filter((activity) => {
+        const activityDate = new Date(activity.date);
+        return (
+          activityDate.getMonth() === currentMonth &&
+          activityDate.getFullYear() === currentYear
+        );
+      });
+    },
+
+    monthSteps() {
+      const activities = this.monthlyActivities;
+      return activities.reduce((total, activity) => total + activity.steps, 0);
+    },
+    monthDistance() {
+      const activities = this.monthlyActivities;
+      return activities.reduce(
+        (total, activity) => total + activity.distance,
+        0,
+      );
+    },
+    monthCalories() {
+      const activities = this.monthlyActivities;
+      return activities.reduce(
+        (total, activity) => total + activity.calories,
+        0,
+      );
+    },
   },
 });

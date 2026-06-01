@@ -41,8 +41,11 @@
               Кроки за місяць
             </div>
 
-            <div class="text-h5 font-weight-bold">
-              {{ monthlySteps.toLocaleString() }}
+            <div
+              class="text-h5 font-weight-bold"
+              v-if="!!activityStore.monthSteps"
+            >
+              {{ activityStore.monthSteps.toLocaleString() }}
             </div>
           </div>
 
@@ -59,8 +62,11 @@
               Відстань за місяць
             </div>
 
-            <div class="text-h5 font-weight-bold">
-              {{ monthlyDistance.toFixed(2) }} км
+            <div
+              class="text-h5 font-weight-bold"
+              v-if="!!activityStore.monthDistance"
+            >
+              {{ activityStore.monthDistance.toFixed(2) }} км
             </div>
           </div>
 
@@ -77,8 +83,11 @@
               Калорії за місяць
             </div>
 
-            <div class="text-h5 font-weight-bold">
-              {{ monthlyCalories.toLocaleString() }}
+            <div
+              class="text-h5 font-weight-bold"
+              v-if="!!activityStore.monthCalories"
+            >
+              {{ activityStore.monthCalories.toLocaleString() }}
             </div>
           </div>
 
@@ -222,27 +231,6 @@ const errorMessage = ref("");
 const snackbarMessage = ref("");
 const formRef = ref(null);
 const dailyGoal = ref(20000);
-
-const monthlySteps = computed(() => {
-  return activityStore.allActivities.reduce(
-    (sum, activity) => sum + (activity.steps || 0),
-    0,
-  );
-});
-
-const monthlyDistance = computed(() => {
-  return activityStore.allActivities.reduce(
-    (sum, activity) => sum + (activity.distance || 0),
-    0,
-  );
-});
-
-const monthlyCalories = computed(() => {
-  return activityStore.allActivities.reduce(
-    (sum, activity) => sum + (activity.calories || 0),
-    0,
-  );
-});
 
 const progressColor = computed(() => {
   if (progressPercent.value >= 100) return "success";
