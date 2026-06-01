@@ -2,7 +2,7 @@
   <div class="d-flex justify-space-between align-center mb-6">
     <h1 class="text-h4 font-weight-bold">Моя активність</h1>
 
-    <v-btn color="primary" @click="dialog = true"> + Додати активність </v-btn>
+    <v-btn color="primary" @click="dialog = true" icon="mdi-plus"> </v-btn>
   </div>
 
   <v-card class="pa-6 rounded-xl mb-6" elevation="2">
